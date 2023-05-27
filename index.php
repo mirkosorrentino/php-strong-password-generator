@@ -7,7 +7,7 @@ if (isset($_GET["length"])) {
 function password_gen($pwd_length) {
     $letters = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM';
     $numbers = '1234567890';
-    $symbols = '!"£$%&/()=?^«“‘¥~÷≠[]+*@#¶§∞◊}{¿±≈⁄‰¢|';
+    $symbols = '!£$&/()=?[]+*@#}{';
     
     $chars = $letters . $numbers . $symbols;
     
@@ -39,5 +39,11 @@ function password_gen($pwd_length) {
         <button type="submit" value="submit">Send</button>
         <button type="reset">Reset</button>
     </form>
+
+    <?php if(isset($password)) { ?>
+        <div class="alert alert-primary" role="alert">La tua password è <?php echo $password?> </div>
+    <?php } else {?>
+        <div>Non hai selezionato la lunghezza della password</div>
+    <?php }?>
 </body>
 </html>
