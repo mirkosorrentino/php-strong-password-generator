@@ -1,25 +1,11 @@
 <?php 
+include_once __DIR__ . "/functions.php";
+
 if (isset($_GET["length"])) {
     $password_length = $_GET["length"];
     $password = password_gen($password_length);
 }
 
-function password_gen($pwd_length) {
-    $letters = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM';
-    $numbers = '1234567890';
-    $symbols = '!£$&/()=?[]+*@#}{';
-    
-    $chars = $letters . $numbers . $symbols;
-    
-    $password = '';
-
-    while (strlen($password) < $pwd_length) {
-        $next_char = rand(0, strlen($chars));
-        $password .= $chars[$next_char];
-    }
-
-    return $password;
-}
 
 ?>
 
