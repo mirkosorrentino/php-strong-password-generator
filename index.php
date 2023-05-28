@@ -1,9 +1,12 @@
 <?php 
+session_start();
 include_once __DIR__ . "/functions.php";
 
 if (isset($_GET["length"])) {
     $password_length = $_GET["length"];
     $password = password_gen($password_length);
+    $_SESSION["password"] = $password;
+    header("Location: password_page.php");
 }
 
 
